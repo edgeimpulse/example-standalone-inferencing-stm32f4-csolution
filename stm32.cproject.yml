@@ -1,0 +1,24 @@
+project:
+
+  layers:
+    - layer: ./app/app.clayer.yml
+    - layer: ./model/model.clayer.yml
+
+  components:
+    - component: ARM::CMSIS:CORE
+    - component: Device:CubeMX
+
+  linker:
+    - regions: RTE/Device/STM32F446RETx/regions_NUCLEO-F446RE.h
+      script: STM32CubeMX/Nucleo_STM32F446/STM32CubeMX/STM32CubeIDE/STM32F446RETX_FLASH.ld
+      for-compiler: GCC
+      for-context: +Nucleo_STM32F446
+
+    - regions: RTE/Device/STM32F401RETx/regions_NUCLEO-F401RE.h
+      script: STM32CubeMX/Nucleo_STM32F401/STM32CubeMX/STM32CubeIDE/STM32F401RETX_FLASH.ld
+      for-compiler: GCC
+      for-context: +Nucleo_STM32F401
+
+  output:
+    base-name: $Project$   # used the base name of the `cproject.yml` file.
+    type: elf              # Generate executeable file.

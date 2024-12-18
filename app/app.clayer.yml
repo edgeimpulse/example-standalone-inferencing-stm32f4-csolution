@@ -1,0 +1,17 @@
+layer:
+  type: Application
+  description: Application files and configurations
+
+  packs:
+    - pack: EdgeImpulse::EI-SDK
+    
+  components:
+    - component: ARM::CMSIS:DSP
+    - component: ARM::CMSIS:NN
+    - component: EdgeImpulse::EdgeImpulse:SDK
+
+  groups:
+    - group: Application
+      files:
+        - file: ./src/ei_main.cpp
+        - file: ./src/retarget.c

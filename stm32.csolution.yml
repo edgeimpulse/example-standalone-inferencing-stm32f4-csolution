@@ -1,0 +1,51 @@
+solution:
+  created-for: cmsis-toobox@2.6.1
+  description: Example standalone for STM32F4 using Edge Impulse SDK
+
+  cdefault:
+
+  # List of tested compilers that can be selected
+  select-compiler:
+    - compiler: AC6
+    - compiler: GCC
+    - compiler: IAR
+
+  compiler: GCC # Note: doesn't work with 13.3.1!
+
+  # List the packs that define the device and/or board
+  packs:
+    - pack: ARM::CMSIS@6.0.0
+    - pack: ARM::CMSIS-DSP@1.15.0
+    - pack: ARM::CMSIS-NN@4.1.0
+    - pack: Keil::STM32F4xx_DFP@>=3.0.0
+    - pack: Keil::NUCLEO-F446RE_BSP@1.0.0
+    - pack: Keil::NUCLEO-F401RE_BSP@1.0.0
+
+  target-types:
+    - type: Nucleo_STM32F446
+      device: STMicroelectronics::STM32F446RETx
+      board: STMicroelectronics::NUCLEO-F446RE:Rev.C
+      variables:
+        - Target-Layer: ./target/nucleo_f466re/target.clayer.yml
+
+    - type: Nucleo_STM32F401
+      device: STMicroelectronics::STM32F401RETx
+      board: STMicroelectronics::NUCLEO-F401RE:Rev.C
+      variables:
+        - Target-Layer: ./target/nucleo_f401re/target.clayer.yml
+
+  output-dirs:
+    outdir:  ./build/$TargetType$/$Compiler$/$BuildType$/$Project$/outdir
+
+  build-types:                                # defines toolchain options for 'debug' and 'release'
+    - type: Debug
+      debug: on
+      optimize: none
+
+    - type: Release
+      debug: off
+      optimize: speed
+
+  # List related projects
+  projects:
+    - project: ./stm32.cproject.yml

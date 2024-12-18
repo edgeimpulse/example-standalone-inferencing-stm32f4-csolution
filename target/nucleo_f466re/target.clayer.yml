@@ -1,0 +1,7 @@
+layer:
+  type: Target
+  description: STM32F466RE Nucleo target components and files
+
+  define:
+    - EI_PORTING_STM32_NUCLEO: 0
+    - EI_PORTING_STM32_CUBEAI: 1

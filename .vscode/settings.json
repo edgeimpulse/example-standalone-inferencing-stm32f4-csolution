@@ -1,0 +1,34 @@
+{
+    "cmsis-csolution.actions": [
+        {
+            "path": "stm32.csolution.yml",
+            "target": "STMicroelectronics::STM32F446RETx",
+            "config": {
+                "run": "Flash Device",
+                "debug": "Arm Debugger"
+            },
+            "projects": [
+                {
+                    "path": "stm32.cproject.yml",
+                    "config": {
+                        "run": "Flash Device",
+                        "debug": "Arm Debugger"
+                    }
+                }
+            ]
+        },
+        {
+            "path": "stm32.csolution.yml",
+            "target": "Nucleo_STM32F446",
+            "config": {
+                "debug": "Cortex-debug with ST-Link"
+            }
+        }
+    ],
+    // "cortex-debug.armToolchainPath": Set me for debugging,
+
+    "files.associations": {
+        "main.h": "c",
+        "stm32f4xx_hal.h": "c"
+    },
+}

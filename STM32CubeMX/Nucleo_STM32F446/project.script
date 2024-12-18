@@ -1,0 +1,5 @@
+loadboard NUCLEO-F446RE allmodes
+project name STM32CubeMX
+project toolchain "STM32CubeIDE"
+project path "C:\work\edge_impulse\st\example-standalone-inferencing-stm32\STM32CubeMX\Nucleo_STM32F446"
+SetCopyLibrary "copy only"
